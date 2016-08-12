@@ -55,6 +55,11 @@ public class SDCard {
         return false;
     }
 
+    public boolean exists() {
+        if (mVolume == null) return false;
+        return mVolume.getPathFile().exists();
+    }
+
     public String getDirectory() {
         if (mVolume == null) {
             return null;

@@ -683,6 +683,9 @@ public class VideoMenu extends MenuController
         String[] keys = mOtherKeys1;
         if (mActivity.isDeveloperMenuEnabled())
             keys = mOtherKeys2;
+        if (!SDCard.instance().exists()) {
+            keys = removePref(keys, CameraSettings.KEY_CAMERA_SAVEPATH);
+        }
         popup1.initialize(mPreferenceGroup, keys);
         if (mActivity.isSecureCamera()) {
             // Prevent location preference from getting changed in secure camera

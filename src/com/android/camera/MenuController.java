@@ -87,6 +87,16 @@ public class MenuController {
         }
     }
 
+     public String[] removePref(String[] keys, String key) {
+        List<String> result = new ArrayList<>();
+        for (String k : keys) {
+            if (!key.equals(k)) {
+                result.add(k);
+            }
+        }
+        return result.toArray(keys);
+    }
+
     protected void reloadPreference(IconListPreference pref) {
         View switcher = mPreferenceMap.get(pref);
         if (switcher == null)
